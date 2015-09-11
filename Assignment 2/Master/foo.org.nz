@@ -1,0 +1,28 @@
+$ORIGIN foo.org.nz.
+$TTL 3600
+
+foo.org.nz. IN SOA ns0.foo.org.nz. bsd-server.foo.org.nz. (
+	2015090802 ; serial number
+	3h	   ; slave refresh
+	1h         ; slave retry
+	3d         ; slave expires
+	1h)	   ; negative ttl  
+
+ IN NS ns0.foo.org.nz.
+ IN NS ns1.foo.org.nz.
+
+ns0 IN A 172.16.5.4
+ns1 IN A 192.168.2.100
+
+router1 IN A 172.16.5.2
+router2 IN A 172.16.5.3
+	IN A 192.168.2.2
+
+linuxMachine IN A 172.16.5.30
+winClient IN A 169.254.188.167
+winRelay IN A 192.168.2.101
+winClient IN A 172.16.5.12 
+
+mail IN MX 10 ns0
+
+www IN CNAME ns0
